@@ -101,6 +101,6 @@ def get_partitions(start, end, partition_batch_size, provider_uri):
 def export_all(start, end, partition_batch_size, provider_uri, output_dir, max_workers, export_batch_size, chain, enrich):
     """Exports all data for a range of blocks."""
     
-    # We want to manipulate the output_dir variable here to point to an S3 bucket before passing it to do_export_all
+    # TODO: We want to manipulate the output_dir variable HERE to point to an S3 bucket before passing it to do_export_all
     do_export_all(chain, get_partitions(start, end, partition_batch_size, provider_uri),
                   output_dir, provider_uri, max_workers, export_batch_size, enrich)

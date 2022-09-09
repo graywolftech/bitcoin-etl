@@ -58,13 +58,15 @@ def export_all(chain, partitions, output_dir, provider_uri, max_workers, batch_s
         )
 
         # # # blocks_and_transactions # # #
-
+        
+        # We can see here that output_dir is used to define where the block files are output
         blocks_output_dir = '{output_dir}/blocks{partition_dir}'.format(
             output_dir=output_dir,
             partition_dir=partition_dir,
         )
         os.makedirs(os.path.dirname(blocks_output_dir), exist_ok=True)
 
+        # We can see here that output_dir is used to define where the tx files are written
         transactions_output_dir = '{output_dir}/transactions{partition_dir}'.format(
             output_dir=output_dir,
             partition_dir=partition_dir,
