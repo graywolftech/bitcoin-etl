@@ -90,11 +90,15 @@ def get_partitions(start, end, partition_batch_size, provider_uri):
               help='The number of blocks to export in partition.')
 @click.option('-p', '--provider-uri', default='http://user:pass@localhost:8332', type=str,
               help='The URI of the remote Bitcoin node.')
+
+# output_dir here is defaulted to 'output'
 @click.option('-o', '--output-dir', default='output', type=str, help='Output directory, partitioned in Hive style.')
 @click.option('-w', '--max-workers', default=5, type=int, help='The maximum number of workers.')
 @click.option('-B', '--export-batch-size', default=1, type=int, help='The number of requests in JSON RPC batches.')
 @click.option('-c', '--chain', default=Chain.BITCOIN, type=click.Choice(Chain.ALL),
               help='The type of chain.')
+
+# TODO: Looks like enrich on export was an option all along!! Will have to test this, would be nice to have linked data in the data lake
 @click.option('--enrich', default=False, type=bool, help='Enable filling in transactions inputs fields.')
 
 # This is where the magic happens. I believe it is 'output_dir' that we want to manipulate
